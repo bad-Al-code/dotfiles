@@ -57,6 +57,9 @@ alias tn="tmux new -s"
 alias gs="git status -s"
 alias gl='git log --oneline --all --graph'
 
+# yazi 
+alias yy="yazi"
+
 ###########################################################################################
 
 autoload bashcompinit && bashcompinit
