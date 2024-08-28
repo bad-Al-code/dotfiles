@@ -1,3 +1,9 @@
+local toggle_opts = {
+  border = "rounded",
+  title_pos = "center",
+  ui_width_ratio = 0.40,
+}
+
 return {
   { "echasnovski/mini.ai", enabled = false },
 
@@ -111,7 +117,7 @@ return {
           "<leader>h",
           function()
             local harpoon = require("harpoon")
-            harpoon.ui:toggle_quick_menu(harpoon:list())
+            harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
           end,
           desc = "Harpoon Quick Menu",
         },
