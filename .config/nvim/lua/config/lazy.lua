@@ -58,6 +58,9 @@ require("lazy").setup({
     -- rust
     -- { import = "lazyvim.plugins.extras.lang.rust" },
 
+    -- prisma
+    { import = "lazyvim.plugins.extras.lang.prisma" },
+
     { import = "plugins" },
   },
   defaults = {

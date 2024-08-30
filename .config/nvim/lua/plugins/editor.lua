@@ -9,10 +9,12 @@ return {
         completion = { -- rounded border; thin-style scrollbar
           border = "rounded",
           scrollbar = "║",
+          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
         },
         documentation = { -- no border; native-style scrollbar
           border = "rounded",
           scrollbar = "║",
+          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
         },
       },
     },
