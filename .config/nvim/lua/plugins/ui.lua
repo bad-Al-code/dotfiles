@@ -16,9 +16,8 @@ return {
       vim.o.laststatus = vim.g.lualine_laststatus
       return {
         options = {
-          theme = "tokyonight",
+          -- theme = "tokyonight",
           globalstatus = true,
-          disabled_filetypes = { statusline = { "alpha", "starter" } },
         },
         sections = {
           lualine_b = {
@@ -94,7 +93,7 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 90,
+      timeout = 100,
       background_colour = "#000000",
       stages = "fade",
       render = "compact",
