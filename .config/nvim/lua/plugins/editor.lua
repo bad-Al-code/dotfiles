@@ -20,7 +20,7 @@ return {
     },
   },
 
-  -- diable flash
+  -- disable flash
   {
     enabled = false,
     "folke/flash.nvim",
