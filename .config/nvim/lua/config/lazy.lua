@@ -26,7 +26,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.python" },
 
     -- terraform
-    -- { import = "lazyvim.plugins.extras.lang.terraform" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
 
     -- Typescript
     { import = "lazyvim.plugins.extras.lang.typescript" },
