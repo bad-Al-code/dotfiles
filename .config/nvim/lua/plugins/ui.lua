@@ -107,26 +107,27 @@ return {
   },
 
   -- dashboard
-  {
-    "nvimdev/dashboard-nvim",
-    event = "vimEnter",
-    opts = function(_, opts)
-      --  https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=
-      local logo = [[
-       ▄▄▄▄    ▄▄▄      ▓█████▄  ▄▄▄       ██▓
-▓█████▄ ▒████▄    ▒██▀ ██▌▒████▄    ▓██▒
-▒██▒ ▄██▒██  ▀█▄  ░██   █▌▒██  ▀█▄  ▒██▒
-▒██░█▀  ░██▄▄▄▄██ ░▓█▄   ▌░██▄▄▄▄██ ░██░
-░▓█  ▀█▓ ▓█   ▓██▒░▒████▓  ▓█   ▓██▒░██░
-░▒▓███▀▒ ▒▒   ▓▒█░ ▒▒▓  ▒  ▒▒   ▓▒█░░▓  
-▒░▒   ░   ▒   ▒▒ ░ ░ ▒  ▒   ▒   ▒▒ ░ ▒ ░
- ░    ░   ░   ▒    ░ ░  ░   ░   ▒    ▒ ░
- ░            ░  ░   ░          ░  ░ ░  
-  ]]
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
-  },
+  { "nvimdev/dashboard-nvim", enabled = false },
+  --   {
+  --     "nvimdev/dashboard-nvim",
+  --     event = "vimEnter",
+  --     opts = function(_, opts)
+  --       --  https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=
+  --       local logo = [[
+  --        ▄▄▄▄    ▄▄▄      ▓█████▄  ▄▄▄       ██▓
+  -- ▓█████▄ ▒████▄    ▒██▀ ██▌▒████▄    ▓██▒
+  -- ▒██▒ ▄██▒██  ▀█▄  ░██   █▌▒██  ▀█▄  ▒██▒
+  -- ▒██░█▀  ░██▄▄▄▄██ ░▓█▄   ▌░██▄▄▄▄██ ░██░
+  -- ░▓█  ▀█▓ ▓█   ▓██▒░▒████▓  ▓█   ▓██▒░██░
+  -- ░▒▓███▀▒ ▒▒   ▓▒█░ ▒▒▓  ▒  ▒▒   ▓▒█░░▓
+  -- ▒░▒   ░   ▒   ▒▒ ░ ░ ▒  ▒   ▒   ▒▒ ░ ▒ ░
+  --  ░    ░   ░   ▒    ░ ░  ░   ░   ▒    ▒ ░
+  --  ░            ░  ░   ░          ░  ░ ░
+  --   ]]
+  --       logo = string.rep("\n", 8) .. logo .. "\n\n"
+  --       opts.config.header = vim.split(logo, "\n")
+  --     end,
+  --   },
 
   -- tailwind-colorizer-cmp
   {
