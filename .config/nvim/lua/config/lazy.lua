@@ -11,31 +11,20 @@ require("lazy").setup({
     -- add LazyVim and import its pluginsj
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- { import = "lazyvim.plugins.extras.dap.core" },
-    -- { import = "lazyvim.plugins.extras.dap.nlua" },
-
+    -- go
     { import = "lazyvim.plugins.extras.lang.go" },
-
-    -- docker
-    { import = "lazyvim.plugins.extras.lang.docker" },
-
-    -- markdown
-    -- { import = "lazyvim.plugins.extras.lang.markdown" },
-
-    -- python
-    -- { import = "lazyvim.plugins.extras.lang.python" },
-
-    -- terraform
-    { import = "lazyvim.plugins.extras.lang.terraform" },
 
     -- Typescript
     { import = "lazyvim.plugins.extras.lang.typescript" },
 
-    -- YAML
-    -- { import = "lazyvim.plugins.extras.lang.yaml" },
+    -- prisma
+    { import = "lazyvim.plugins.extras.lang.prisma" },
 
-    -- JSON
-    -- { import = "lazyvim.plugins.extras.lang.json" },
+    -- docker
+    { import = "lazyvim.plugins.extras.lang.docker" },
+
+    -- terraform
+    { import = "lazyvim.plugins.extras.lang.terraform" },
 
     -- tailwind-css
     { import = "lazyvim.plugins.extras.lang.tailwind" },
@@ -46,20 +35,8 @@ require("lazy").setup({
     -- prettier
     { import = "lazyvim.plugins.extras.formatting.prettier" },
 
-    -- UI
-    -- { import = "lazyvim.plugins.extras.ui.edgy" },
-
-    -- vscode
-    -- { import = "lazyvim.plugins.extras.vscode" },
-
     -- neotest
-    { import = "lazyvim.plugins.extras.test.core" },
-
-    -- rust
-    -- { import = "lazyvim.plugins.extras.lang.rust" },
-
-    -- prisma
-    { import = "lazyvim.plugins.extras.lang.prisma" },
+    -- { import = "lazyvim.plugins.extras.test.core" },
 
     { import = "plugins" },
   },

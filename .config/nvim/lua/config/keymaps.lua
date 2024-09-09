@@ -36,42 +36,12 @@ function ToggleNetrw()
   end
 end
 
--- Function to toggle netrw in vertical split
-function ToggleVexplore()
-  local netrw_buffer = nil
-
-  -- Find if there's a netrw buffer in a vertical split
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    if vim.bo[buf].filetype == "netrw" and vim.api.nvim_win_get_width(win) < vim.o.columns then
-      netrw_buffer = buf
-      break
-    end
-  end
-
-  if netrw_buffer then
-    -- If vertical netrw is open, close it
-    vim.api.nvim_buf_delete(netrw_buffer, { force = true })
-  else
-    -- If vertical netrw is not open, open it
-    vim.cmd("Vexplore")
-  end
-end
-
 -- Keymap for toggling netrw
 vim.api.nvim_set_keymap(
   "n",
   "<leader>e",
   ":lua ToggleNetrw()<CR>",
   { noremap = true, silent = true, desc = "Toggle netrw" }
-)
-
--- Additional keymap for opening netrw in vertical split (optional)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>v",
-  ":lua ToggleVexplore()<CR>",
-  { noremap = true, silent = true, desc = "Toggle vertical netrw" }
 )
 
 -- select all
