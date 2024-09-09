@@ -1,18 +1,23 @@
--- set sytem clipboard
+-- Set system clipboard
 vim.opt.clipboard = "unnamedplus"
 vim.opt.pumblend = 0
 
+-- Scroll offset
 vim.opt.scrolloff = 10
 
--- Tokyonight-inspired statusline configuration
+-- Netrw settings
+vim.g.netrw_banner = 0 -- Hide banner
+vim.g.netrw_browse_split = 0 -- Open files in the same window
+vim.g.netrw_winsize = 25 -- Set explorer width to 25% of the screen
+
 local M = {}
 
 function M.setup()
   local colors = {
-    bg = "#16171c", -- Use terminal background
-    fg = "#7aa2f7", -- Tokyonight blue for text
-    light_bg = "#3b4261", -- Slightly lighter than bg for inactive windows
-    separator = "#3b4261", -- Color for window separators
+    bg = "#16171c",
+    fg = "#7aa2f7",
+    light_bg = "#3b4261",
+    separator = "#3b4261",
   }
 
   -- Set highlight groups
@@ -26,6 +31,7 @@ function M.setup()
       i = "INSERT",
       v = "VISUAL",
       V = "V-LINE",
+      r = "REPLACE",
       c = "COMMAND",
       t = "TERMINAL",
       [""] = "V-BLOCK",
@@ -42,21 +48,30 @@ function M.setup()
     return fname
   end
 
-  -- Make functions globally accessible
+  -- Function to get relative file path
+  local function relative_path()
+    local filepath = vim.fn.expand("%:p")
+    local cwd = vim.fn.getcwd()
+    if filepath:find(cwd, 1, true) == 1 then
+      return filepath:sub(#cwd + 2)
+    end
+    return filepath
+  end
+
   _G.statusline = {
     mode = mode,
     filename = filename,
+    relative_path = relative_path,
   }
 
   -- Statusline setup
   vim.o.statusline = table.concat({
-    " %{luaeval('statusline.mode()')} ", -- Current mode
-    "%{expand('%:h')}", -- File path
-    "/%{luaeval('statusline.filename()')} ", -- File name
-    "%m", -- Modified flag
-    "%=", -- Right align
-    "%l:%c ", -- Line and column
-    "%p%% ", -- Percentage through file
+    " %{luaeval('statusline.mode()')} ",
+    "%{luaeval('statusline.relative_path()')}",
+    "%m",
+    "%=",
+    "%l:%c ",
+    "%p%% ",
   })
 
   -- Set global status line
