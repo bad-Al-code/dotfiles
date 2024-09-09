@@ -170,4 +170,7 @@ return {
       })
     end,
   },
+
+  -- mini-icons
+  { "echasnovski/mini.icons", enabled = false },
 }
