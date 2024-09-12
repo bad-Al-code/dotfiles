@@ -11,7 +11,6 @@ require("lazy").setup({
     -- add LazyVim and import its pluginsj
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    { import = "lazyvim.plugins.extras.lang.clangd" },
     -- go
     { import = "lazyvim.plugins.extras.lang.go" },
 
@@ -26,6 +25,9 @@ require("lazy").setup({
 
     -- terraform
     { import = "lazyvim.plugins.extras.lang.terraform" },
+
+    -- ansible
+    { import = "lazyvim.plugins.extras.lang.ansible" },
 
     -- tailwind-css
     { import = "lazyvim.plugins.extras.lang.tailwind" },

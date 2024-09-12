@@ -5,26 +5,21 @@ local toggle_opts = {
 }
 
 return {
+  -- mini-pairs
+  { "echasnovski/mini.pairs", enabled = false },
+
+  -- mini-ai
   { "echasnovski/mini.ai", enabled = false },
+
+  -- lazydev
+  { "folke/lazydev.nvim", enabled = false },
 
   -- trouble
   {
     "folke/trouble.nvim",
-    cmd = { "Trouble" },
-    opts = {
-      modes = {
-        lsp = {
-          win = { position = "right" },
-        },
-      },
-    },
     keys = {
       { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
       { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-      { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
-      { "<leader>cS", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions/... (Trouble)" },
-      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
       {
         "[p",
         function()
@@ -56,11 +51,7 @@ return {
     },
   },
 
-  -- mini-pairs
-  { "echasnovski/mini.pairs", enabled = false },
-
   -- -- autopairs
-  -- { "windwp/nvim-autopairs", enabled = false },
   {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
@@ -68,10 +59,7 @@ return {
       "hrsh7th/nvim-cmp",
     },
     config = function()
-      -- import nvim-autopairs
       local autopairs = require("nvim-autopairs")
-
-      -- configure autopairs
       autopairs.setup({
         check_ts = true, -- enable treesitter
         ts_config = {
@@ -81,13 +69,10 @@ return {
         },
       })
 
-      -- import nvim-autopairs completion functionality
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
-      -- import nvim-cmp plugin (completions plugin)
       local cmp = require("cmp")
 
-      -- make autopairs and completion work together
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
