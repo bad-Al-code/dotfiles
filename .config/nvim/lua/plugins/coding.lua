@@ -151,4 +151,51 @@ return {
       require("lspkind").init({})
     end,
   },
+
+  -- nvim-treesitter-context
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    opts = function()
+      local tsc = require("treesitter-context")
+      LazyVim.toggle.map("<leader>ut", {
+        name = "Treesitter Context",
+        get = tsc.enabled,
+        set = function(state)
+          if state then
+            tsc.enable()
+          else
+            tsc.disable()
+          end
+        end,
+      })
+      return {
+        mode = "cursor",
+        max_lines = 3,
+        trim_scope = "outer",
+        min_window_height = 0,
+        patterns = {
+          default = {
+            "class",
+            "function",
+            "method",
+            "for",
+            "while",
+            "if",
+            "switch",
+            "case",
+          },
+          -- Add language-specific patterns here if needed
+        },
+        line_numbers = true,
+      }
+    end,
+    config = function(_, opts)
+      require("treesitter-context").setup(opts)
+
+      vim.schedule(function()
+        vim.api.nvim_set_hl(0, "TreesitterContext", { link = "NormalFloat" })
+      end)
+    end,
+  },
 }
