@@ -1,31 +1,30 @@
--- Set system clipboard
-vim.opt.clipboard = "unnamedplus"
-vim.opt.pumblend = 0
-
--- Scroll offset
-vim.opt.scrolloff = 10
-
--- Netrw settings
-vim.g.netrw_banner = 0 -- Hide banner
-vim.g.netrw_browse_split = 0 -- Open files in the same window
-vim.g.netrw_winsize = 25 -- Set explorer width to 25% of the screen
-
 local M = {}
 
-function M.setup()
-  local colors = {
-    bg = "#16171c",
-    fg = "#7aa2f7",
-    light_bg = "#3b4261",
-    separator = "#3b4261",
-  }
+-- General options
+local function set_options()
+  vim.opt.clipboard = "unnamedplus"
+  vim.opt.pumblend = 0
+  vim.opt.scrolloff = 10
+end
 
-  -- Set highlight groups
-  vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.bg, fg = colors.fg })
-  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.light_bg, fg = colors.fg })
+-- Netrw settings
+local function setup_netrw()
+  vim.g.netrw_banner = 0
+  vim.g.netrw_browse_split = 0
+  vim.g.netrw_winsize = 20
+end
 
-  -- Function to get current mode
-  local function mode()
+-- Colors for statusline and window separators
+local colors = {
+  bg = "#16171c",
+  fg = "#7aa2f7",
+  light_bg = "#3b4261",
+  separator = "#3b4261",
+}
+
+-- Statusline utility functions
+local statusline_utils = {
+  mode = function()
     local mode_map = {
       n = "NORMAL",
       i = "INSERT",
@@ -37,34 +36,24 @@ function M.setup()
       [""] = "V-BLOCK",
     }
     return mode_map[vim.api.nvim_get_mode().mode] or "UNKNOWN"
-  end
+  end,
 
-  -- Function to get file name
-  local function filename()
+  filename = function()
     local fname = vim.fn.expand("%:t")
-    if fname == "" then
-      return "[No Name]"
-    end
-    return fname
-  end
+    return fname ~= "" and fname or "[No Name]"
+  end,
 
-  -- Function to get relative file path
-  local function relative_path()
+  relative_path = function()
     local filepath = vim.fn.expand("%:p")
     local cwd = vim.fn.getcwd()
-    if filepath:find(cwd, 1, true) == 1 then
-      return filepath:sub(#cwd + 2)
-    end
-    return filepath
-  end
+    return filepath:find(cwd, 1, true) == 1 and filepath:sub(#cwd + 2) or filepath
+  end,
+}
 
-  _G.statusline = {
-    mode = mode,
-    filename = filename,
-    relative_path = relative_path,
-  }
+-- Setup statusline
+local function setup_statusline()
+  _G.statusline = statusline_utils
 
-  -- Statusline setup
   vim.o.statusline = table.concat({
     " %{luaeval('statusline.mode()')} ",
     "%{luaeval('statusline.relative_path()')}",
@@ -74,12 +63,27 @@ function M.setup()
     "%p%% ",
   })
 
-  -- Set global status line
   vim.o.laststatus = 3
+end
 
-  -- Set window separator
-  vim.o.fillchars = "vert:│,horiz:─,eob: "
+-- Setup colors and highlights
+local function setup_colors()
+  vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.bg, fg = colors.fg })
+  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.light_bg, fg = colors.fg })
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = colors.separator })
+end
+
+-- Setup window separators
+local function setup_window_separators()
+  vim.o.fillchars = "vert:│,horiz:─,eob: "
+end
+
+function M.setup()
+  set_options()
+  setup_netrw()
+  setup_statusline()
+  setup_colors()
+  setup_window_separators()
 end
 
 return M
