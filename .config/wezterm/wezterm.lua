@@ -23,7 +23,7 @@ config.line_height = 1
 config.dpi = 96.0
 
 config.max_fps = 145
--- config.color_scheme = "tokyonight_night"
+config.color_scheme = "tokyonight_night"
 --config.color_scheme = "catppuccin-latte"
 -- config.color_scheme = "tokyonight_day"
 config.use_fancy_tab_bar = false
@@ -32,12 +32,11 @@ config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.enable_scroll_bar = false
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 4,
+	left = 2,
+	right = 2,
+	top = 0,
 	bottom = 0,
 }
-config.window_background_opacity = 0.8
 local root_name = "/home/badal/"
 -- config.window_background_image = root_name .. ".dotfiles/screenshots/1.png"
 config.window_background_image_hsb = {

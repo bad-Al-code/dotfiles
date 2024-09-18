@@ -50,22 +50,6 @@ local statusline_utils = {
   end,
 }
 
--- Setup statusline
-local function setup_statusline()
-  _G.statusline = statusline_utils
-
-  vim.o.statusline = table.concat({
-    " %{luaeval('statusline.mode()')} ",
-    "%{luaeval('statusline.relative_path()')}",
-    "%m",
-    "%=",
-    "%l:%c ",
-    "%p%% ",
-  })
-
-  vim.o.laststatus = 3
-end
-
 -- Setup colors and highlights
 local function setup_colors()
   vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.bg, fg = colors.fg })
@@ -81,7 +65,6 @@ end
 function M.setup()
   set_options()
   setup_netrw()
-  setup_statusline()
   setup_colors()
   setup_window_separators()
 end

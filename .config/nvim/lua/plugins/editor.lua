@@ -20,6 +20,10 @@ local pick = function()
 end
 
 return {
+
+  -- which key
+  { "folke/which-key.nvim", enabled = false },
+
   -- disable flash
   {
     "folke/flash.nvim",

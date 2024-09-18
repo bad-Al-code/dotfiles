@@ -66,6 +66,9 @@ bindsym $mod+Return exec /usr/bin/wezterm
 # set keybind for opening Brave-browser
 bindsym $mod+b exec /usr/bin/brave-browser
 
+# keybind for obsidian
+bindsym $mod+o exec /usr/bin/obsidian
+
 # kill focused window
 bindsym $mod+q kill
 

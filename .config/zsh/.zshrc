@@ -30,8 +30,8 @@ alias c=clear
 alias history="history -E"
 # alias ls='lsd'
 alias ls='eza --all --git'
-alias la="eza --all --long --icons --git --tree --level=1"
-alias l="eza --all --git --tree --level=1 --icons=always"
+alias la="eza --all --long  --git --tree --level=1"
+alias l="eza --all --git --tree --level=1 "
 
 alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; "
 alias cl='sudo apt autoremove -y; sudo apt clean'
@@ -83,8 +83,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 ######## fzf #########
-# eval "$(fzf --zsh)"
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ######## fd #########
 # -- Use fd instead of fzf --
@@ -103,7 +102,7 @@ _fzf_compgen_dir() {
 }
 
 ######## fzf-git #########
-source ~/fzf-git.sh/fzf-git.sh
+# source ~/fzf-git.sh/fzf-git.sh
 
 ######## bat #########
 export BAT_THEME=tokyonight_night

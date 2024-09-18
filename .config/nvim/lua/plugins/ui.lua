@@ -7,11 +7,6 @@ return {
   -- lualine
   { "nvim-lualine/lualine.nvim", enabled = false },
 
-  -- which key
-  {
-    { "folke/which-key.nvim", enabled = false },
-  },
-
   -- dashboard
   { "nvimdev/dashboard-nvim", enabled = false },
 
@@ -38,21 +33,10 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 100,
-      background_colour = "#000000",
-      stages = "fade",
+      timeout = 1000,
       render = "compact",
+      top_down = false,
     },
-  },
-
-  -- tailwind-colorizer-cmp
-  {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end,
   },
 
   -- mini-indentscope
