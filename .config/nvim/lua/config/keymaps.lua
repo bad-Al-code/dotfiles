@@ -36,3 +36,9 @@ map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
 -- Copy to system clipboard
 map("v", "<leader>yy", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
+
+-- Ctrl+U: Half-page up and center
+map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center" })
+
+-- Ctrl+D: Half-page down and center
+map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center" })
