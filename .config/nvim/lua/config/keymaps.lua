@@ -42,3 +42,8 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center" })
 
 -- Ctrl+D: Half-page down and center
 map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center" })
+
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
