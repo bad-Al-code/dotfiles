@@ -151,3 +151,7 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 eval "$(zoxide init zsh)"
 alias cd="z"
 
+
+# Bind Ctrl+F to run tmux_sessionizor
+bindkey -s '^F' 'tmux_sessionizer\n'
+

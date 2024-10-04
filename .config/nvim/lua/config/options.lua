@@ -12,11 +12,12 @@ local function setup_netrw()
   vim.g.netrw_banner = 0
   vim.g.netrw_browse_split = 0
   vim.g.netrw_winsize = 20
+  vim.g.netrw_list_hide = [[^\./$]]
 end
 
 -- Colors for statusline and window separators
 local colors = {
-  bg = "#16171c",
+  bg = "#24262b",
   fg = "#7aa2f7",
   light_bg = "#3b4261",
   separator = "#3b4261",
@@ -55,6 +56,7 @@ local function setup_colors()
   vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.bg, fg = colors.fg })
   vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.light_bg, fg = colors.fg })
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = colors.separator })
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = colors.bg })
 end
 
 -- Setup window separators
@@ -62,11 +64,18 @@ local function setup_window_separators()
   vim.o.fillchars = "vert:│,horiz:─,eob: "
 end
 
+-- Max line width setting
+local function set_line_width()
+  vim.opt.textwidth = 120
+  vim.opt.colorcolumn = "120"
+end
+
 function M.setup()
   set_options()
   setup_netrw()
   setup_colors()
   setup_window_separators()
+  set_line_width()
 end
 
 return M

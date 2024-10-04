@@ -25,9 +25,6 @@ exec --no-startup-id xautolock -time 1500 -locker "i3lock -c 000000"
 # picom 
 exec --no-startup-id picom -b
 
-# wallpaper
-exec --no-startup-id nitrogen --restore
-
 # touchpad single click and natural scrolling 
 exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput Natural Scrolling Enabled" 1
@@ -61,8 +58,8 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 
 # start a terminal
+# bindsym $mod+Return exec /usr/bin/gnome-terminal
 bindsym $mod+Return exec /usr/bin/wezterm
-# bindsym $mod+Return exec /usr/bin/konsole
 
 # set keybind for opening Brave-browser
 bindsym $mod+b exec /usr/bin/brave-browser
@@ -72,7 +69,7 @@ bindsym $mod+q kill
 
 # start dmenu
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec dmenu_run -fn 'SF Pro Display-12' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee' -p 'Run:'
+bindsym $mod+d exec dmenu_run -fn 'SF Pro Display-10' 
 
 
 # change focus
@@ -228,7 +225,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="obsidian"] $ws1
 assign [class="Brave-browser"] $ws3
 assign [class="Postman"] $ws4
-assign [class="wezterm"] $ws2
 assign [class="TelegramDesktop"] $ws6
 assign [class="vlc"] $ws4
 assign [class="Code"] $ws5
@@ -236,15 +232,15 @@ assign [class="Slack"] $ws7
 assign [class="Discord"] $ws7
 
 # Move to assigned workspace when opening an application
-for_window [class="obsidian"] move container to workspace $ws1
-for_window [class="Brave-browser"] move container to workspace $ws3
-for_window [class="Postman"] move container to workspace $ws4
-for_window [class="wezterm"] move container to workspace $ws2
-for_window [class="TelegramDesktop"] move container to workspace $ws6
-for_window [class="vlc"] move container to workspace $ws4
-for_window [class="Slack"] move container to workspace $ws7
-for_window [class="Discord"] move container to workspace $ws7
-
+# for_window [class="obsidian"] move container to workspace $ws1
+# for_window [class="Brave-browser"] move container to workspace $ws3
+# for_window [class="Postman"] move container to workspace $ws4
+# for_window [class="wezterm"] move container to workspace $ws2
+# for_window [class="TelegramDesktop"] move container to workspace $ws6
+# for_window [class="vlc"] move container to workspace $ws4
+# for_window [class="Slack"] move container to workspace $ws7
+# for_window [class="Discord"] move container to workspace $ws7
+#
 
 default_border pixel 1
 default_floating_border pixel 1

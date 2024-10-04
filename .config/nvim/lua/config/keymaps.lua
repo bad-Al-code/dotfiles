@@ -47,3 +47,5 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+vim.api.nvim_set_keymap("n", "<C-f>", ":silent !tmux neww tmux_sessionizer<CR>", { noremap = true, silent = true })
