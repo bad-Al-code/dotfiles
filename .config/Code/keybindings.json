@@ -70,5 +70,15 @@
   {
     "key": "ctrl+shift+5",
     "command": "editor.emmet.action.matchTag"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "!inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen"
   }
 ]
