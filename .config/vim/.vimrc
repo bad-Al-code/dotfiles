@@ -69,7 +69,5 @@ set foldmethod=manual " defines the type of folding
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 
-colorscheme slate 
-
 set laststatus=2
 " set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
