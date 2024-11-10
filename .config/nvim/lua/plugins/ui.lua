@@ -28,24 +28,4 @@ return {
             },
         },
     },
-
-    -- notify
-    -- {
-    --   "rcarriga/nvim-notify",
-    --   opts = {
-    --     timeout = 1000,
-    --     render = "compact",
-    --     top_down = false,
-    --   },
-    -- },
-
-    -- mini-indentscope
-    {
-        "echasnovski/mini.indentscope",
-        version = false, -- wait till new 0.7.0 release to put it back on semver
-        event = "LazyFile",
-        opts = {
-            options = { try_as_border = true },
-        },
-    },
 }

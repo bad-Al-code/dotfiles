@@ -129,7 +129,7 @@ _fzf_comprun() {
 }
 
 # thefuck 
-# eval $(thefuck --alias)
+ eval $(thefuck --alias)
 
 # export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@15/bin:$PATH" 
 # export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin:$PATH"

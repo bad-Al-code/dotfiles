@@ -1,3 +1,8 @@
+vim.opt.list = false
+vim.opt.expandtab = false -- Use tabs instead of spaces
+vim.opt.tabstop = 4 -- Show tabs as 4 spaces
+vim.opt.shiftwidth = 4 -- Use 4 spaces for indentation
+
 local M = {}
 
 -- General options

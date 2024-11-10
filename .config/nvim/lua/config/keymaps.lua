@@ -3,23 +3,23 @@ local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
 function ToggleNetrw()
-  local netrw_buffer = nil
+    local netrw_buffer = nil
 
-  -- Find if there's a netrw buffer
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.bo[buf].filetype == "netrw" then
-      netrw_buffer = buf
-      break
+    -- Find if there's a netrw buffer
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.bo[buf].filetype == "netrw" then
+            netrw_buffer = buf
+            break
+        end
     end
-  end
 
-  if netrw_buffer then
-    -- If netrw is open, close it
-    vim.api.nvim_buf_delete(netrw_buffer, { force = true })
-  else
-    -- If netrw is not open, open it
-    vim.cmd("Explore")
-  end
+    if netrw_buffer then
+        -- If netrw is open, close it
+        vim.api.nvim_buf_delete(netrw_buffer, { force = true })
+    else
+        -- If netrw is not open, open it
+        vim.cmd("Explore")
+    end
 end
 
 -- Window management
