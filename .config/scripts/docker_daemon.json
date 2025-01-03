@@ -1,0 +1,4 @@
+// /etc/docker/daemon.json
+{
+  "data-root": "dir_location"
+}
