@@ -77,7 +77,7 @@ end
 
 function M.setup()
     set_options()
-    setup_netrw()
+    -- setup_netrw()
     -- setup_colors()
     setup_window_separators()
     set_line_width()

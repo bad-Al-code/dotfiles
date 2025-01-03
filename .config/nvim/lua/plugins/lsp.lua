@@ -3,9 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
         -- Global LSP settings
-        -- inlay_hints = {
-        --     enabled = false,
-        -- },
+        inlay_hints = {
+            enabled = false,
+        },
 
         -- Server-specific settings
         servers = {
@@ -31,6 +31,11 @@ return {
 
             -- TypeScript/JavaScript configuration
             tsserver = {
+                init_options = {
+                    preferences = {
+                        disableSuggestions = true,
+                    },
+                },
                 settings = {
                     typescript = {
                         inlayHints = {

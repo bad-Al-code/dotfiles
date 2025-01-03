@@ -26,7 +26,7 @@ exec --no-startup-id xautolock -time 1500 -locker "i3lock -c 000000"
 exec --no-startup-id picom -b
 
 # nitrogen
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 # touchpad single click and natural scrolling 
 exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput Tapping Enabled" 1
@@ -66,7 +66,7 @@ floating_modifier $mod
 bindsym $mod+Return exec /home/badal/.local/kitty.app/bin/kitty
 
 bindsym $mod+n exec /usr/bin/nautilus
-bindsym $mod+z exec /usr/local/bin/zen
+bindsym $mod+z exec /mnt/fe8d8315-7b46-464b-ae4e-36bcb146027e/Downloads/Packages/zen-specific.AppImage
 
 # set keybind for opening Brave-browser
 bindsym $mod+b exec /usr/bin/brave-browser
@@ -230,12 +230,11 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign applications to workspaces
 assign [class="obsidian"] $ws4
-assign [class="Brave-browser"] $ws1
-assign [class="Postman"] $ws3
+assign [class="Brave-browser"] $ws3
+assign [class="Postman"] $ws4
 assign [class="TelegramDesktop"] $ws6
 assign [class="vlc"] $ws5
 assign [class="Code"] $ws2
-assign [class="zen"] $ws3
 assign [class="Slack"] $ws7
 assign [class="Discord"] $ws7
 
