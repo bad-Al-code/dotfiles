@@ -109,7 +109,7 @@ _fzf_compgen_dir() {
 # source ~/fzf-git.sh/fzf-git.sh
 
 ######## bat #########
-export BAT_THEME=tokyonight_night
+# export BAT_THEME=tokyonight_night
 
 
 ########  Setup fzf previews #########
