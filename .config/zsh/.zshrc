@@ -4,6 +4,7 @@
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
+
 ZSH_THEME="apple"
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -75,7 +76,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.pulumi/bin
 
 # History
-HISTSIZE=5000
+HISTSIZE=8000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt appendhistory
