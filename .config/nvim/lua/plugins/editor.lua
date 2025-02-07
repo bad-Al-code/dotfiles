@@ -33,14 +33,28 @@ return {
     -- indent-blankline.nvim
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
 
-    -- neo-tree
-    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-
     -- grug-far.nvim -> search/replace in multiple files
     { "MagicDuck/grug-far.nvim", enabled = false },
 
     -- persistence.nvim
     { "folke/persistence.nvim", enabled = false },
+
+    -- neo-tree
+    -- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        config = function()
+            require("neo-tree").setup({
+                filesystem = {
+                    filtered_items = {
+                        visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+                        hide_dotfiles = false,
+                        hide_gitignored = true,
+                    },
+                },
+            })
+        end,
+    },
 
     -- snacks.nvim
     {

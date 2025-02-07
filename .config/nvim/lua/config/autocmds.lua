@@ -27,7 +27,7 @@ local function disable_formatting_for_env_files()
 end
 
 function M.setup()
-    setup_auto_netrw()
+    -- setup_auto_netrw()
     disable_formatting_for_env_files() -- Add the autocommand to disable formatting for .env files
     -- Add any other autocommands here
 end
