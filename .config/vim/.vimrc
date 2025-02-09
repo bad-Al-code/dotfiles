@@ -71,3 +71,5 @@ nnoremap <Leader>w :w<CR>
 
 set laststatus=2
 " set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+ vnoremap <C-c> :w !xclip -selection clipboard<CR><CR>
+
