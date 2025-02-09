@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar.
-font pango:SF Pro Display 7
+font pango:Fantasque Sans Mono Nerd Font 7
 
 ###############################################################################
 #                     Startup Applications
@@ -34,8 +34,8 @@ exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput 
 exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput Accel Speed" 0.6
 
 # brightness -> brightnessctl
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d amdgpu_bl1 set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d amdgpu_bl1 set 5%-
 
 # brightness -> light
 # bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
@@ -76,7 +76,7 @@ bindsym $mod+q kill
 
 # start dmenu
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec dmenu_run -fn 'SF Pro Display-10' 
+bindsym $mod+d exec dmenu_run 
 
 
 # change focus
@@ -230,10 +230,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign applications to workspaces
 assign [class="obsidian"] $ws4
-assign [class="Brave-browser"] $ws3
-assign [class="Postman"] $ws4
 assign [class="TelegramDesktop"] $ws6
-assign [class="vlc"] $ws5
 assign [class="Code"] $ws2
 assign [class="Slack"] $ws7
 assign [class="Discord"] $ws7
