@@ -23,8 +23,8 @@ order += "disk /"
 #order += "wireless wlan0"
 #order += "ethernet eno16777736"
 order += "battery 1"
-#order += "cpu_temperature 0"
-# order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "cpu_usage"
 #order += "load"
 order += "volume master"
 # order += "tztime localdate"
@@ -78,7 +78,7 @@ battery 1 {
 # }
 #
 cpu_usage {
-    format = "   %usage"
+    format = "  %usage"
 }
 #
 # load {
