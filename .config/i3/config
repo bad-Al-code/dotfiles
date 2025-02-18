@@ -4,6 +4,7 @@
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar.
+# SF Pro Display
 font pango:Fantasque Sans Mono Nerd Font 7
 
 ###############################################################################

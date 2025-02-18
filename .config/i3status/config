@@ -32,7 +32,7 @@ order += "tztime localtime"
 
 
 disk "/" {
-	format = "  %avail"
+	format = " %avail"
 	prefix_type	= custom
 	low_threshold = 20
 	threshold_type = percentage_avail
@@ -67,7 +67,7 @@ battery 1 {
     low_threshold = 11
     threshold_type = percentage
     hide_seconds = true
-    status_chr = "  "
+    status_chr = " "
 }
 
    
@@ -91,7 +91,7 @@ tztime localdate {
 }
 
 tztime localtime{
-    format = "   %A %e.%B    %H:%M"
+    format = "  %A %e.%B| %H:%M"
 }
 
 volume master {
