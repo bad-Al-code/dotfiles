@@ -83,7 +83,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.activityBar.location": "top",
   "workbench.editor.editorActionsLocation": "hidden",
-  "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 1.7,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.tabs.enabled": false,
@@ -123,7 +122,13 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.navigationControl.enabled": false,
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.editor.tabSizing": "fixed",
   "editor.guides.indentation": false,
-  "window.density.editorTabHeight": "compact"
+  "window.density.editorTabHeight": "compact",
+  "window.dialogStyle": "custom",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "hidden",
+  "git.openRepositoryInParentFolders": "always",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "workbench.editor.tabActionCloseVisibility": false
 }

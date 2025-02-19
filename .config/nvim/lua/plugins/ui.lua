@@ -5,7 +5,7 @@ return {
     { "akinsho/bufferline.nvim", enabled = false },
 
     -- lualine
-    -- { "nvim-lualine/lualine.nvim", enabled = false },
+    { "nvim-lualine/lualine.nvim", enabled = false },
 
     -- dashboard
     { "nvimdev/dashboard-nvim", enabled = false },
