@@ -1,11 +1,8 @@
 {
-  // Vim Configuration
   "vim.leader": "<Space>",
   "vim.hlsearch": true,
 
-  // Vim Normal Mode Keybindings
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Navigation
     { "before": ["<S-h>"], "commands": [":bprevious"] },
     { "before": ["<S-l>"], "commands": [":bnext"] },
     { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
@@ -13,7 +10,6 @@
     { "before": ["n"], "after": ["n", "z", "z", "z", "v"] },
     { "before": ["N"], "after": ["N", "z", "z", "z", "v"] },
 
-    // Window Management
     { "before": ["leader", "v"], "commands": [":vsplit"] },
     { "before": ["leader", "s"], "commands": [":split"] },
     {
@@ -33,22 +29,17 @@
       "commands": ["workbench.action.focusRightGroup"]
     },
 
-    // File Operations
     { "before": ["leader", "w"], "commands": [":w!"] },
     { "before": ["leader", "q"], "commands": [":q!"] },
     { "before": ["leader", "x"], "commands": [":x!"] },
     { "before": ["<leader>", "b", "d"], "commands": [":bdelete"] },
 
-    // Editing
     { "before": ["<C-a>"], "after": ["g", "g", "V", "G"] },
     { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
-    // Updated system clipboard copy
     {
       "before": ["<leader>", "y"],
       "after": ["\"", "+", "y"]
     },
-
-    // Code Navigation
     { "before": ["[", "d"], "commands": ["editor.action.marker.prev"] },
     { "before": ["]", "d"], "commands": ["editor.action.marker.next"] },
     {
@@ -59,22 +50,15 @@
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     },
-
-    // UI
     { "before": ["<Esc>"], "commands": [":nohl"] }
   ],
-
-  // Vim Visual Mode Keybindings
   "vim.visualModeKeyBindings": [
-    // Indentation
     { "before": ["<"], "commands": ["editor.action.outdentLines"] },
     { "before": [">"], "commands": ["editor.action.indentLines"] },
 
-    // Line Movement
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
 
-    // Editing
     { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] },
     {
       "before": ["<leader>", "y"],
@@ -82,47 +66,31 @@
     }
   ],
 
-  // Editor Configuration
   "editor.lineNumbers": "relative",
   "editor.formatOnSave": true,
   "editor.wordWrap": "on",
   "editor.largeFileOptimizations": false,
-  "editor.fontFamily": "'Dank Mono','Droid Sans Mono', 'monospace', monospace",
-  "editor.codeLensFontFamily": "'Dank Mono'",
+  "editor.fontFamily": "'FantasqueSansMono Nerd Font','Dank Mono','Droid Sans Mono', 'monospace', monospace",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.overviewRulerBorder": true,
   "editor.stickyScroll.enabled": false,
-  "editor.experimentalInlineEdit.fontFamily": "medium",
-
-  // Minimap Settings
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fit",
-
-  // Workbench Configuration
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
-  "workbench.editor.showTabs": "none",
-  "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "top",
   "workbench.editor.editorActionsLocation": "hidden",
-
-  // Window Settings
   "window.menuBarVisibility": "toggle",
-  "window.commandCenter": false,
   "window.zoomLevel": 1.7,
-
-  // Terminal Settings
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.tabs.enabled": false,
-  "terminal.integrated.fontFamily": "'Dank Mono'",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.stickyScroll.enabled": false,
 
-  // Language-specific Formatter Settings
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -145,18 +113,17 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // Misc Settings
-  // "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "extensions.autoUpdate": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "go.toolsManagement.autoUpdate": true,
-
-  // CMake Settings
-  "cmake.pinnedCommands": [
-    "workbench.action.tasks.configureTaskRunner",
-    "workbench.action.tasks.runTask"
-  ],
-  "cmake.showOptionsMovedNotification": false,
-  "editor.cursorBlinking": "solid"
+  "editor.cursorBlinking": "solid",
+  "window.titleBarStyle": "native",
+  "chat.commandCenter.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.navigationControl.enabled": false,
+  "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.editor.tabSizing": "fixed",
+  "editor.guides.indentation": false,
+  "window.density.editorTabHeight": "compact"
 }

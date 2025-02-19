@@ -13,7 +13,8 @@ end
 -------------------------------------------------------------------------------
 --                             General Config
 -------------------------------------------------------------------------------
-config.font = wezterm.font("DankMono Nerd Font")
+
+-- config.font = wezterm.font("FantasqueSansMono Nerd Font")
 -- config.color_scheme = "Vs Code Dark+ (Gogh)"
 -- config.color_scheme = "Kanagawa Dragon (Gogh)"
 -- config.color_scheme = "Vs Code Light+ (Gogh)"
