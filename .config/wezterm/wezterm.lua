@@ -14,7 +14,7 @@ end
 --                             General Config
 -------------------------------------------------------------------------------
 
--- config.font = wezterm.font("FantasqueSansMono Nerd Font")
+config.font = wezterm.font("FantasqueSansMono Nerd Font")
 -- config.color_scheme = "Vs Code Dark+ (Gogh)"
 -- config.color_scheme = "Kanagawa Dragon (Gogh)"
 -- config.color_scheme = "Vs Code Light+ (Gogh)"
@@ -24,7 +24,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.enable_scroll_bar = false
 config.window_padding = {
-	-- left = 2,
+	left = 0,
 	right = 0,
 	top = 0,
 	bottom = 0,

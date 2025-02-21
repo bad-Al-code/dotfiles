@@ -67,7 +67,8 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec /usr/bin/gnome-terminal
 # bindsym $mod+Return exec /usr/bin/wezterm
-bindsym $mod+Return exec /home/badal/.local/kitty.app/bin/kitty
+ bindsym $mod+Return exec /home/badal/.local/kitty.app/bin/kitty
+# bindsym $mod+Return exec /usr/bin/wezterm
 
 bindsym $mod+n exec /usr/bin/nautilus
 # bindsym $mod+z exec /mnt/fe8d8315-7b46-464b-ae4e-36bcb146027e/Downloads/Packages/zen-specific.AppImage

@@ -71,8 +71,8 @@ end
 
 -- Max line width setting
 local function set_line_width()
-    vim.opt.textwidth = 120
-    vim.opt.colorcolumn = "120"
+    vim.opt.textwidth = 100
+    vim.opt.colorcolumn = "100"
 end
 
 function M.setup()
