@@ -23,6 +23,22 @@ return {
                         follow = true,
                     },
                 },
+                icons = {
+                    files = {
+                        enabled = false,
+                    },
+                    git = {
+                        enabled = false,
+                    },
+                },
+            },
+
+            lazygit = {
+                config = {
+                    gui = {
+                        nerdFontsVersion = "",
+                    },
+                },
             },
 
             terminal = { enabled = false },
