@@ -77,7 +77,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.pulumi/bin
 
 # History
-HISTSIZE=8000
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt appendhistory
@@ -166,3 +166,4 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/local/go/bin
 export LC_ALL=en_US.UTF-8
 
+export PATH=$HOME/.local/zig:$PATH

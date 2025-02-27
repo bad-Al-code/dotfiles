@@ -15,6 +15,7 @@ end
 -------------------------------------------------------------------------------
 
 config.font = wezterm.font("FantasqueSansMono Nerd Font")
+config.font_size = 16
 -- config.color_scheme = "Vs Code Dark+ (Gogh)"
 -- config.color_scheme = "Kanagawa Dragon (Gogh)"
 -- config.color_scheme = "Vs Code Light+ (Gogh)"
@@ -30,11 +31,11 @@ config.window_padding = {
 	bottom = 0,
 }
 -- config.window_background_opacity = 0.95
--- local root_name = "/home/badal/"
--- config.window_background_image = root_name .. ".dotfiles/screenshots/B.png"
+local root_name = "/home/badal/"
+-- config.window_background_image = root_name .. "Downloads/planet.jpg"
 -- config.window_background_image_hsb = {
--- 	brightness = 0.02,
--- 	saturation = 0.09,
+-- 	-- brightness = 0.02,
+-- 	-- saturation = 0.09,
 -- }
 
 -- config.text_background_opacity = 0.8
