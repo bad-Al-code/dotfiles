@@ -127,7 +127,12 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   // "workbench.editor.tabActionCloseVisibility": false,
-  "window.customTitleBarVisibility": "auto"
+  "workbench.colorTheme": "Pitch Black",
+  "workbench.activityBar.location": "top",
+  "editor.minimap.enabled": false,
+  "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "auto",
+  "workbench.startupEditor": "none"
   // "workbench.layoutControl.enabled": false,
   // "workbench.navigationControl.enabled": false
 }
