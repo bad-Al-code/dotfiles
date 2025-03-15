@@ -30,7 +30,11 @@ exec --no-startup-id xautolock -time 1500 -locker "i3lock -c 000000"
 exec --no-startup-id picom -b
 
 # nitrogen
-exec --no-startup-id nitrogen --restore
+ exec --no-startup-id nitrogen --restore
+
+# set icons 
+exec --no-startup-id xsetroot -cursor_name macOS
+
 
 # touchpad single click and natural scrolling 
 exec --no-startup-id xinput set-prop "ELAN072B:00 04F3:30A0 Touchpad" "libinput Tapping Enabled" 1
@@ -71,7 +75,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec /usr/bin/wezterm
 
 bindsym $mod+n exec /usr/bin/nautilus
-# bindsym $mod+z exec /mnt/fe8d8315-7b46-464b-ae4e-36bcb146027e/Downloads/Packages/zen-specific.AppImage
+bindsym $mod+z exec /home/badal/Documents/zen-x86_64.AppImage
 
 # set keybind for opening Brave-browser
 bindsym $mod+b exec /usr/bin/brave-browser
@@ -252,18 +256,5 @@ bar {
 
  for_window [class="^.*"] border pixel 0
 
-# default_border pixel 3
-# default_floating_border pixel 2
-#
-# # class                 border  backgr. text    indicator child_border
-# # client.focused          #4c7899 #285577 #ffffff #4c7899   #4c7899
-#
-# bar {
-#         status_command i3status
-# }
-#
-# # for_window [class="^.*"] border pixel 0
-#
-# client.focused          #212121e6 #212121e6 #ffffff #212121e6 #212121e6
-gaps inner 3px
-gaps outer 5px
+gaps inner 2px
+gaps outer 2px
