@@ -1,6 +1,7 @@
 {
   "vim.leader": "<Space>",
   "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
 
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": ["<S-h>"], "commands": [":bprevious"] },
@@ -35,7 +36,10 @@
     { "before": ["<leader>", "b", "d"], "commands": [":bdelete"] },
 
     { "before": ["<C-a>"], "after": ["g", "g", "V", "G"] },
-    { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
+    {
+      "before": ["leader", "p"],
+      "commands": ["editor.action.formatDocument"]
+    },
     {
       "before": ["<leader>", "y"],
       "after": ["\"", "+", "y"]
@@ -59,7 +63,10 @@
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
 
-    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] },
+    {
+      "before": ["leader", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
     {
       "before": ["<leader>", "y"],
       "after": ["\"", "+", "y"]
@@ -113,7 +120,7 @@
   },
 
   "breadcrumbs.enabled": false,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "extensions.autoUpdate": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   // "editor.cursorBlinking": "solid",
@@ -132,7 +139,14 @@
   "editor.minimap.enabled": false,
   "window.titleBarStyle": "native",
   "window.customTitleBarVisibility": "auto",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "icons",
+  "explorer.confirmDelete": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "diffEditor.renderSideBySide": true,
+  "editor.tabSize": 2,
+  "editor.stickyScroll.enabled": false
   // "workbench.layoutControl.enabled": false,
   // "workbench.navigationControl.enabled": false
 }
