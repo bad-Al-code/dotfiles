@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ###########################################################################################
 #                                ALIASES AND ALIASES
@@ -36,7 +36,7 @@ alias ls='eza --all --git'
 alias la="eza --all --long  --git --tree --level=1"
 alias l="eza --all --git --tree --level=1 "
 
-alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; "
+alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade;"
 alias cl='sudo apt autoremove -y; sudo apt clean'
 alias lg="lazygit"
 
@@ -164,6 +164,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:/usr/local/go/bin
+export PATH="/usr/local/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 
 export PATH=$HOME/.local/zig:$PATH
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+xmodmap ~/.Xmodmap
