@@ -73,3 +73,41 @@ set laststatus=2
 " set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
  vnoremap <C-c> :w !xclip -selection clipboard<CR><CR>
 
+ " Split Windows 
+ nnoremap <leader>sv: vsplit<CR>
+ nnoremap <leader>ss: split<CR>
+
+" Show full file path 
+ nnoremap <leader>pa :echo expand('%:p')<CR>
+
+ " Toggle Netrw 
+function! ToggleNetrw()
+    if exists("t:netrw_open") && t:netrw_open
+        let t:netrw_open = 0
+        silent! exec "bd NERD_tree_1"  " Close netrw if open
+    else
+        let t:netrw_open = 1
+        silent! exec "Lexplore"  " Open netrw
+    endif
+endfunction
+
+nnoremap <leader>e :call ToggleNetrw()<CR>
+
+ " Select all 
+ nnoremap <C-a> ggVG
+
+ " system clipboard 
+ vnoremap <leader>yy "+y 
+
+ "half page up and center 
+ nnoremap <C-u> <C-u>zz
+
+ "half page down and center 
+ nnoremap <C-d> <C-d>zz
+
+ " keep search result centers 
+ nnoremap n nzzzv
+ nnoremap N Nzzzv
+
+ " Open tmux_sessionized 
+nnoremap <C-f> :silent !tmux neww /usr/local/bin/tmux_sessionizer<CR>
