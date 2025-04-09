@@ -36,7 +36,7 @@ alias ls='eza --all --git --color=never'
 alias la="eza --all --long  --git --tree --level=1 --color=never"
 alias l="eza --all --git --tree --level=1 --color=never"
 
-alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade;"
+alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade; brew cleanup; brew autoremove;"
 alias cl='sudo apt autoremove -y; sudo apt clean'
 alias lg="lazygit"
 
