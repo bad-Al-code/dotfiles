@@ -25,16 +25,16 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.lang.typescript" },
 
         -- prisma
-        { import = "lazyvim.plugins.extras.lang.prisma" },
+        -- { import = "lazyvim.plugins.extras.lang.prisma" },
 
         -- docker
-        { import = "lazyvim.plugins.extras.lang.docker" },
+        -- { import = "lazyvim.plugins.extras.lang.docker" },
 
         -- terraform
-        { import = "lazyvim.plugins.extras.lang.terraform" },
+        -- { import = "lazyvim.plugins.extras.lang.terraform" },
 
         -- ansible
-        { import = "lazyvim.plugins.extras.lang.ansible" },
+        -- { import = "lazyvim.plugins.extras.lang.ansible" },
 
         -- tailwind-css
         { import = "lazyvim.plugins.extras.lang.tailwind" },
