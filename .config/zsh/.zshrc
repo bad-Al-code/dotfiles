@@ -157,7 +157,7 @@ alias cd="z"
 
 
 # Bind Ctrl+F to run tmux_sessionizor
-bindkey -s '^F' 'tmux_sessionizer\n'
+bindkey -s '^G' 'tmux_sessionizer\n'
 
 
 export NVM_DIR="$HOME/.nvm"
