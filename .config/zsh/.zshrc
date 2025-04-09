@@ -32,9 +32,9 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 alias c=clear
 alias history="history -E"
 # alias ls='lsd'
-alias ls='eza --all --git'
-alias la="eza --all --long  --git --tree --level=1"
-alias l="eza --all --git --tree --level=1 "
+alias ls='eza --all --git --color=never'
+alias la="eza --all --long  --git --tree --level=1 --color=never"
+alias l="eza --all --git --tree --level=1 --color=never"
 
 alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade;"
 alias cl='sudo apt autoremove -y; sudo apt clean'
