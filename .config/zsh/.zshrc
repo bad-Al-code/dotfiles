@@ -16,7 +16,7 @@ export LANG=en_US.UTF-8
 
 plugins=(
 	zsh-autosuggestions 
-	zsh-syntax-highlighting
+	# zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
