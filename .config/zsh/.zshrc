@@ -37,7 +37,7 @@ alias la="eza --all --long  --git --tree --level=1 --color=never"
 alias l="eza --all --git --tree --level=1 --color=never"
 
 alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade; brew cleanup; brew autoremove;"
-alias cl='sudo apt autoremove -y; sudo apt clean'
+alias cl='sudo apt autoremove -y; sudo apt clean; brew cleanup; brew autoremove;'
 alias lg="lazygit"
 
 alias r='source ~/.zshrc'
@@ -157,7 +157,7 @@ alias cd="z"
 
 
 # Bind Ctrl+F to run tmux_sessionizor
-bindkey -s '^G' 'tmux_sessionizer\n'
+bindkey -s '^f' 'tmux_sessionizer\n'
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -171,3 +171,4 @@ export PATH=$HOME/.local/zig:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 xmodmap ~/.Xmodmap
+export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
