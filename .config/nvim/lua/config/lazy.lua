@@ -31,7 +31,7 @@ require("lazy").setup({
         -- { import = "lazyvim.plugins.extras.lang.docker" },
 
         -- terraform
-        -- { import = "lazyvim.plugins.extras.lang.terraform" },
+        { import = "lazyvim.plugins.extras.lang.terraform" },
 
         -- ansible
         -- { import = "lazyvim.plugins.extras.lang.ansible" },
