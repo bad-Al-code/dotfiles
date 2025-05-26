@@ -5,7 +5,7 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-ZSH_THEME="my"
+ ZSH_THEME="robbyrussell"
 
 export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
