@@ -9,7 +9,8 @@ map("n", "<leader>ss", "<cmd>split<cr>", { desc = "Split horizontally" })
 -- show full file-path
 map("n", "<leader>pa", "<cmd>echo expand('%:p')<cr>", { desc = "Full file name" })
 
-map("n", "<leader>e", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true, desc = "Toggle netrw" })
+-- map("n", "<leader>e", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true, desc = "Toggle netrw" })
+
 
 -- select all
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
