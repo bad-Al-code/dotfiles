@@ -6,6 +6,7 @@
 # fi
 
  ZSH_THEME="robbyrussell"
+ # ZSH_THEME="my"
 
 export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
@@ -33,11 +34,12 @@ alias c=clear
 alias history="history -E"
 # alias ls='lsd'
 alias ls='eza --all --git --color=never'
-alias la="eza --all --long  --git --tree --level=1 --color=never"
+alias ll="eza --all --long  --git --tree  --color=never"
+alias la='ls -lh'
 alias l="eza --all --git --tree --level=1 --color=never"
 
 alias al="sudo apt update; sudo apt upgrade -y;  sudo apt autoremove -y; sudo apt clean; brew update; brew upgrade; brew cleanup; brew autoremove;"
-alias cl='sudo apt autoremove -y; sudo apt clean; brew cleanup; brew autoremove;'
+alias cl='sudo apt autoremove -y; sudo apt clean; brew cleanup; brew autoremove; brew cleanup;'
 alias lg="lazygit"
 
 alias r='source ~/.zshrc'
@@ -170,5 +172,4 @@ export LC_ALL=en_US.UTF-8
 export PATH=$HOME/.local/zig:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-xmodmap ~/.Xmodmap
-export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
+# export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"

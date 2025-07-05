@@ -16,6 +16,7 @@ return {
         timeout = 500,
       },
       picker = {
+        enabled = false,
         sources = {
           explorer = {
             hidden = true,
