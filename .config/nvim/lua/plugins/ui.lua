@@ -10,7 +10,7 @@ return {
   { "nvimdev/dashboard-nvim", enabled = false },
 
   -- -- mini-icons
-  -- { "echasnovski/mini.icons", enabled = false },
+  { "echasnovski/mini.icons", enabled = false },
 
   -- noice
   -- {
