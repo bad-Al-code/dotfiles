@@ -169,6 +169,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="/usr/local/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=$HOME/.local/zig:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
