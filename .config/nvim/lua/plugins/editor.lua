@@ -45,7 +45,7 @@ return {
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- Removed: "nvim-tree/nvim-web-devicons",
+      -- "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
       -- Optional image support for file preview
       -- {"3rd/image.nvim", opts = {}},
