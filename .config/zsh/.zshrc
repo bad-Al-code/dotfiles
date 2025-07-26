@@ -167,10 +167,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:/usr/local/go/bin
 export PATH="/usr/local/bin:$PATH"
-export LC_ALL=en_US.UTF-8
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=$HOME/.local/zig:$PATH
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 # export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
