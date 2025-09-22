@@ -5,6 +5,8 @@
 	editor = nvim
 	autocrlf = input
 	pager = delta
+	preloadindex = true
+	fscache = true
 [credential]
 	helper = cache
 [init]
@@ -20,3 +22,5 @@
 
 [diff]
     colorMoved = default
+[gc]
+	auto = 256
