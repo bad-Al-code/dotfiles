@@ -11,7 +11,6 @@ map("n", "<leader>pa", "<cmd>echo expand('%:p')<cr>", { desc = "Full file name" 
 
 -- map("n", "<leader>e", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true, desc = "Toggle netrw" })
 
-
 -- select all
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
@@ -31,8 +30,8 @@ map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- vim.api.nvim_set_keymap("n", "<C-f>", ":silent !tmux neww tmux_sessionizer<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
-    "n",
-    "<C-f>",
-    ":silent !exec tmux neww /usr/local/bin/tmux_sessionizer<CR>",
-    { noremap = true, silent = true }
+  "n",
+  "<C-f>",
+  ":silent !exec tmux neww /usr/local/bin/tmux_sessionizer<CR>",
+  { noremap = true, silent = true }
 )

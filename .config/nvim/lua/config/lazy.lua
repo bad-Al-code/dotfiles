@@ -16,38 +16,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
+    -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-
-    -- go
-    -- { import = "lazyvim.plugins.extras.lang.go" },
-
-    -- Typescript
     { import = "lazyvim.plugins.extras.lang.typescript" },
-
-    -- prisma
-    -- { import = "lazyvim.plugins.extras.lang.prisma" },
-
-    -- docker
-    -- { import = "lazyvim.plugins.extras.lang.docker" },
-
-    -- terraform
-    -- { import = "lazyvim.plugins.extras.lang.terraform" },
-
-    -- ansible
-    -- { import = "lazyvim.plugins.extras.lang.ansible" },
-
-    -- tailwind-css
     { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
 
-    -- ESLINT
-    -- { import = "lazyvim.plugins.extras.linting.eslint" },
-
-    -- prettier
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-
-    -- neotest
-    -- { import = "lazyvim.plugins.extras.test.core" },
-
+    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {
@@ -59,11 +35,9 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-
   change_detection = {
     notify = false,
   },
-
   checker = {
     enabled = false, -- check for plugin updates periodically
     notify = false, -- notify on update
