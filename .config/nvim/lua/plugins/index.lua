@@ -1,5 +1,5 @@
 return {
-  { "echasnovski/mini.ai", enabled = false },
+  { "nvim-mini/mini.ai", enabled = false },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -162,7 +162,7 @@ return {
       input = { enabled = false },
       notifier = {
         enabled = true,
-        timeout = 500,
+        timeout = 2000,
       },
       picker = {
         enabled = false,
