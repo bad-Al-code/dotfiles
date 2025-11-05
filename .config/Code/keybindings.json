@@ -184,5 +184,23 @@
   {
     "key": "ctrl+b",
     "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.action.terminal.openDetectedLink",
+    "when": "accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "editor.action.clipboardPasteAction"
+  },
+  {
+    "key": "ctrl+v",
+    "command": "-editor.action.clipboardPasteAction"
   }
 ]

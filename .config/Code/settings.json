@@ -100,7 +100,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -117,8 +117,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
-  "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": true,
   "extensions.autoUpdate": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -128,7 +126,6 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   "workbench.startupEditor": "none",
-  "explorer.confirmDelete": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "explorer.confirmDragAndDrop": false,
   "diffEditor.renderSideBySide": true,
@@ -142,14 +139,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "editor.minimap.enabled": false,
   "update.mode": "manual",
   "explorer.compactFolders": false,
   "github.copilot.nextEditSuggestions.enabled": true,
   "chat.commandCenter.enabled": false,
   "chat.agent.enabled": false,
   "workbench.editor.enablePreviewFromQuickOpen": true,
-  "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
@@ -167,17 +162,43 @@
     "searchAndCompare": true,
     "launchpad": false
   },
-  "window.autoDetectColorScheme": true,
   "redhat.telemetry.enabled": false,
   "remote.autoForwardPortsSource": "hybrid",
-  "editor.fontFamily": "Geist Mono Medium, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Geist Mono, Consolas, 'Courier New', monospace",
   "window.titleBarStyle": "native",
   "window.menuStyle": "native",
   "window.title": "",
-  "window.menuBarVisibility": "hidden",
-  "window.customTitleBarVisibility": "never",
-  "workbench.editor.editorActionsLocation": "hidden",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.location": "top",
+  "window.commandCenter": false,
+  "explorer.confirmDelete": false,
+  "workbench.colorCustomizations": {
+    "[Default Dark Modern]": {
+      "editor.background": "#0a0a0a",
+      "sideBar.background": "#0f0f0f",
+      "activityBar.background": "#0c0c0c",
+      "statusBar.background": "#0c0c0c",
+      "terminal.background": "#0c0c0c"
+    },
+    "[Default Light Modern]": {
+      "editor.background": "#fafafa",
+      "sideBar.background": "#f5f5f5",
+      "activityBar.background": "#f5f5f5",
+      "statusBar.background": "#f5f5f5",
+      "terminal.background": "#fafafa"
+    }
+  },
+  "workbench.colorTheme": "Default Light Modern",
+  "window.autoDetectColorScheme": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "breadcrumbs.enabled": false,
+  "gitlens.ai.model": "gemini:gemini-2.5-flash-lite",
+  "window.customTitleBarVisibility": "never",
+  "workbench.editor.empty.hint": "hidden",
+  "editor.minimap.enabled": false,
+  "yaml.schemas": {},
+  "yaml.schemaStore.enable": false
 }
