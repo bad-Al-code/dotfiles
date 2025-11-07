@@ -171,3 +171,4 @@ export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=$HOME/.local/zig:$PATH
 # export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
+alias studio="/opt/android-studio/bin/studio.sh"
