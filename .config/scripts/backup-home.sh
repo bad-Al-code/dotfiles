@@ -3,16 +3,23 @@
 LOGFILE="/var/log/backup-home.log"
 LOCKFILE="/var/run/backup-home.lock"
 SOURCE="/home/badal"
-MOUNT_POINT="/media/badal/New Volume1"
+MOUNT_POINT="/media/badal/NewVolume1"
 BACKUP_DIR="${MOUNT_POINT}/Backup"
-DEVICE="/dev/sda2"
 MIN_SPACE_GB=10
 MAX_LOG_SIZE=10485760
 BACKUP_USER="badal"
 
 EXCLUDE_PATTERNS=(
+  'Android/'
+  'go/pkg/'
+  'snap/firefox/'
+  'snap/firmware-updater/'
+  'AndroidStudioProjects/'
   '.cache/'
-  '.local/share/Trash/'
+  '.tmux/plugins/*'
+  '.zen/'
+  '.local/share/*'
+  '.local/state/*'
   '**/Cache/'
   '**/cache/'
   '**/.cache/'
@@ -29,9 +36,11 @@ EXCLUDE_PATTERNS=(
   'snap/*/.cache/'
   'snap/*/cache/'
   '.config/Code/Cache/'
+  '.config/Brave*'
   '.config/Code/CachedData/'
   '.config/Code/CachedExtensions/'
   '.config/Code/logs/'
+  '.config/Code/User/History/'
   '.config/Code/User/workspaceStorage/'
   '.vscode/extensions/*/node_modules/'
   '.mozilla/firefox/*/cache2/'
@@ -126,24 +135,13 @@ check_lock
 log_message "=== Starting backup process ==="
 send_notification "Backup Started" "Backing up /home/badal..." "low" "drive-harddisk"
 
-if mountpoint -q "$MOUNT_POINT"; then
-  log_message "Drive already mounted at $MOUNT_POINT"
-else
-  log_message "Mounting $DEVICE to $MOUNT_POINT"
-  if [ ! -d "$MOUNT_POINT" ]; then
-    mkdir -p "$MOUNT_POINT"
-  fi
-  
-  mount "$DEVICE" "$MOUNT_POINT"
-  
-  if [ $? -eq 0 ]; then
-    log_message "Successfully mounted $DEVICE"
-  else
-    log_message "ERROR: Failed to mount $DEVICE"
-    send_notification "Backup Failed" "Could not mount backup drive" "critical" "dialog-error"
-    exit 1
-  fi
+if ! mountpoint -q "$MOUNT_POINT"; then
+  log_message "ERROR: Backup drive not mounted at $MOUNT_POINT"
+  send_notification "Backup Failed" "Backup drive not mounted" "critical" "dialog-error"
+  exit 1
 fi
+
+log_message "Backup drive mounted at $MOUNT_POINT"
 
 AVAILABLE_SPACE=$(df -BG "$MOUNT_POINT" | awk 'NR==2 {print $4}' | sed 's/G//')
 if [ "$AVAILABLE_SPACE" -lt "$MIN_SPACE_GB" ]; then
@@ -167,7 +165,7 @@ done
 
 START_TIME=$(date +%s)
 
-rsync -ah --info=progress2 --stats \
+rsync -avh --progress \
   "${EXCLUDE_ARGS[@]}" \
   "$SOURCE/" "$BACKUP_DIR/" 2>&1 | tee -a "$LOGFILE"
 
@@ -189,13 +187,6 @@ else
   log_message "ERROR: Backup failed with exit code $RSYNC_EXIT"
   send_notification "Backup Failed" "Check logs for details" "critical" "dialog-error"
   exit 1
-fi
-
-RANDOM_FILE=$(find "$SOURCE" -type f 2>/dev/null | shuf -n 1)
-if [ -n "$RANDOM_FILE" ] && [ -f "$BACKUP_DIR${RANDOM_FILE#$SOURCE}" ]; then
-  log_message "Verification: Random file backup confirmed"
-else
-  log_message "WARNING: Verification failed for $RANDOM_FILE"
 fi
 
 log_message "=== Backup process finished ==="
