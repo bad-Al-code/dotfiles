@@ -43,7 +43,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 
 # Notification daemon
-exec --no-startup-id dunst
+# exec --no-startup-id dunst
+exec_always --no-startup-id "killall -q dunst; while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done; dunst"
 
 # Clipboard manager
 exec --no-startup-id clipster -d
