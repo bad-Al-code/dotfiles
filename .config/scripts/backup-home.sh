@@ -25,7 +25,7 @@ EXCLUDE_PATTERNS=(
   '**/.cache/'
   '.npm/_cacache/'
   '.npm/_logs/'
-  '.gradle/caches/'
+  '.gradle/'
   '.gradle/daemon/'
   '.gradle/wrapper/dists/'
   '.android/cache/'
