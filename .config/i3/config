@@ -226,11 +226,10 @@ bindsym $mod+Shift+bracketleft move container to workspace back_and_forth
 
 # Assign applications to workspaces
 assign [class="Code|code"] $ws2
-assign [class="obsidian"] $ws4
-assign [class="TelegramDesktop"] $ws6
-assign [class="Slack"] $ws7
-assign [class="discord|Discord"] $ws7
-assign [class="Spotify"] $ws10
+assign [class="TelegramDesktop"] $ws3
+assign [class="Slack"] $ws3
+assign [class="discord|Discord"] $ws4
+assign [class="Spotify"] $ws4
 
 ################################################################################
 #                           Window Rules
