@@ -202,6 +202,7 @@ config.keys = {
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 
 	-- Copy/Paste
+
 	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
 	{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
 

@@ -99,10 +99,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Change focus (arrow keys)
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # Move focused window (vim keys)
 bindsym $mod+Shift+h move left
@@ -111,10 +111,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # Move focused window (arrow keys)
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # Split orientation
 bindsym $mod+bar split h
@@ -322,7 +322,7 @@ default_floating_border none
 for_window [class=".*"] border pixel 0, border pixel 2 px
 
 # Alternatively, use this smart approach:
-gaps inner 2
+gaps inner 1
 gaps outer 1
 smart_gaps on
 smart_borders no_gaps

@@ -14,6 +14,7 @@ EXCLUDE_PATTERNS=(
   'go/pkg/'
   'snap/firefox/'
   'snap/firmware-updater/'
+  '.pub-cache/'
   'AndroidStudioProjects/'
   '.cache/'
   '.tmux/plugins/*'
@@ -90,8 +91,8 @@ send_notification() {
   local message="$2"
   local urgency="${3:-normal}"
   local icon="${4:-drive-harddisk}"
-  
-  if command -v notify-send &> /dev/null; then
+
+  if command -v notify-send &>/dev/null; then
     for display in /tmp/.X11-unix/X*; do
       display_num="${display##*X}"
       sudo -u "$BACKUP_USER" DISPLAY=":${display_num}" DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u $BACKUP_USER)/bus" \
@@ -111,7 +112,7 @@ rotate_logs() {
 check_lock() {
   if [ -f "$LOCKFILE" ]; then
     PID=$(cat "$LOCKFILE")
-    if ps -p "$PID" > /dev/null 2>&1; then
+    if ps -p "$PID" >/dev/null 2>&1; then
       log_message "ERROR: Backup already running (PID: $PID)"
       send_notification "Backup Skipped" "Another backup is already running" "low" "dialog-warning"
       exit 1
@@ -120,7 +121,7 @@ check_lock() {
       rm -f "$LOCKFILE"
     fi
   fi
-  echo $$ > "$LOCKFILE"
+  echo $$ >"$LOCKFILE"
 }
 
 cleanup() {
@@ -181,7 +182,7 @@ if [ $RSYNC_EXIT -eq 0 ]; then
   log_message "Backup size: $BACKUP_SIZE"
   FILE_COUNT=$(find "$BACKUP_DIR" -type f 2>/dev/null | wc -l)
   log_message "Total files in backup: $FILE_COUNT"
-  
+
   send_notification "Backup Complete" "Time: ${DURATION_MIN}m ${DURATION_SEC}s\nSize: $BACKUP_SIZE\nFiles: $FILE_COUNT" "normal" "emblem-default"
 else
   log_message "ERROR: Backup failed with exit code $RSYNC_EXIT"
