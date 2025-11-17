@@ -41,7 +41,7 @@ config.color_scheme = nil
 -- Custom neutral color scheme
 config.colors = {
 	foreground = "#fafafa",
-	background = "#0a0a0a",
+	background = "#171717",
 	cursor_bg = "#fafafa",
 	cursor_fg = "#0a0a0a",
 	cursor_border = "#fafafa",
