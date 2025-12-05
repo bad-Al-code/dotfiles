@@ -1,6 +1,5 @@
 -------------------------------------------------------------------------------
 --                          WezTerm Configuration
---                          Save as: ~/.config/wezterm/wezterm.lua
 -------------------------------------------------------------------------------
 local wezterm = require("wezterm")
 local config = {}
@@ -8,6 +7,11 @@ local config = {}
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
+
+-------------------------------------------------------------------------------
+--                             THEME SELECTOR
+-------------------------------------------------------------------------------
+local THEME = "light" -- Options: "dark" or "light"
 
 -------------------------------------------------------------------------------
 --                             Font Configuration
@@ -33,70 +37,131 @@ config.font_rules = {
 }
 
 -------------------------------------------------------------------------------
---                        Color Scheme - Neutral
+--                        Color Schemes
 -------------------------------------------------------------------------------
--- No default theme, using custom colors only
-config.color_scheme = nil
-
--- Custom neutral color scheme
-config.colors = {
-	foreground = "#fafafa",
-	background = "#171717",
-	cursor_bg = "#fafafa",
-	cursor_fg = "#0a0a0a",
-	cursor_border = "#fafafa",
-	selection_fg = "#fafafa",
-	selection_bg = "#262626",
-
-	scrollbar_thumb = "#262626",
-	split = "#262626",
-
-	ansi = {
-		"#171717", -- black
-		"#ef4444", -- red
-		"#22c55e", -- green
-		"#f59e0b", -- yellow
-		"#3b82f6", -- blue
-		"#a855f7", -- magenta
-		"#06b6d4", -- cyan
-		"#fafafa", -- white
-	},
-	brights = {
-		"#404040", -- bright black
-		"#f87171", -- bright red
-		"#4ade80", -- bright green
-		"#fbbf24", -- bright yellow
-		"#60a5fa", -- bright blue
-		"#c084fc", -- bright magenta
-		"#22d3ee", -- bright cyan
-		"#ffffff", -- bright white
-	},
-
-	tab_bar = {
+local color_schemes = {
+	dark = {
+		foreground = "#fafafa",
 		background = "#0a0a0a",
-		active_tab = {
-			bg_color = "#171717",
-			fg_color = "#fafafa",
-			intensity = "Bold",
+		cursor_bg = "#fafafa",
+		cursor_fg = "#0a0a0a",
+		cursor_border = "#fafafa",
+		selection_fg = "#fafafa",
+		selection_bg = "#262626",
+
+		scrollbar_thumb = "#262626",
+		split = "#262626",
+
+		ansi = {
+			"#171717", -- black
+			"#ef4444", -- red
+			"#22c55e", -- green
+			"#f59e0b", -- yellow
+			"#3b82f6", -- blue
+			"#a855f7", -- magenta
+			"#06b6d4", -- cyan
+			"#fafafa", -- white
 		},
-		inactive_tab = {
-			bg_color = "#0a0a0a",
-			fg_color = "#737373",
+		brights = {
+			"#404040", -- bright black
+			"#f87171", -- bright red
+			"#4ade80", -- bright green
+			"#fbbf24", -- bright yellow
+			"#60a5fa", -- bright blue
+			"#c084fc", -- bright magenta
+			"#22d3ee", -- bright cyan
+			"#ffffff", -- bright white
 		},
-		inactive_tab_hover = {
-			bg_color = "#171717",
-			fg_color = "#fafafa",
+
+		tab_bar = {
+			background = "#0a0a0a",
+			active_tab = {
+				bg_color = "#171717",
+				fg_color = "#fafafa",
+				intensity = "Bold",
+			},
+			inactive_tab = {
+				bg_color = "#0a0a0a",
+				fg_color = "#737373",
+			},
+			inactive_tab_hover = {
+				bg_color = "#171717",
+				fg_color = "#fafafa",
+			},
+			new_tab = {
+				bg_color = "#0a0a0a",
+				fg_color = "#737373",
+			},
+			new_tab_hover = {
+				bg_color = "#171717",
+				fg_color = "#fafafa",
+			},
 		},
-		new_tab = {
-			bg_color = "#0a0a0a",
-			fg_color = "#737373",
+	},
+
+	light = {
+		foreground = "#0a0a0a",
+		background = "#fafafa",
+		cursor_bg = "#0a0a0a",
+		cursor_fg = "#fafafa",
+		cursor_border = "#0a0a0a",
+		selection_fg = "#0a0a0a",
+		selection_bg = "#e5e5e5",
+
+		scrollbar_thumb = "#e5e5e5",
+		split = "#e5e5e5",
+
+		ansi = {
+			"#fafafa", -- black (inverted for light mode)
+			"#dc2626", -- red
+			"#16a34a", -- green
+			"#ca8a04", -- yellow
+			"#2563eb", -- blue
+			"#9333ea", -- magenta
+			"#0891b2", -- cyan
+			"#0a0a0a", -- white (inverted for light mode)
 		},
-		new_tab_hover = {
-			bg_color = "#171717",
-			fg_color = "#fafafa",
+		brights = {
+			"#d4d4d4", -- bright black
+			"#ef4444", -- bright red
+			"#22c55e", -- bright green
+			"#f59e0b", -- bright yellow
+			"#3b82f6", -- bright blue
+			"#a855f7", -- bright magenta
+			"#06b6d4", -- bright cyan
+			"#171717", -- bright white
+		},
+
+		tab_bar = {
+			background = "#fafafa",
+			active_tab = {
+				bg_color = "#ffffff",
+				fg_color = "#0a0a0a",
+				intensity = "Bold",
+			},
+			inactive_tab = {
+				bg_color = "#fafafa",
+				fg_color = "#737373",
+			},
+			inactive_tab_hover = {
+				bg_color = "#f5f5f5",
+				fg_color = "#0a0a0a",
+			},
+			new_tab = {
+				bg_color = "#fafafa",
+				fg_color = "#737373",
+			},
+			new_tab_hover = {
+				bg_color = "#f5f5f5",
+				fg_color = "#0a0a0a",
+			},
 		},
 	},
 }
+
+-- Apply the selected theme
+config.color_scheme = nil
+config.colors = color_schemes[THEME]
 
 -------------------------------------------------------------------------------
 --                           Window Appearance

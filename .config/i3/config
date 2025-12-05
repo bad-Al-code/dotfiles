@@ -225,7 +225,7 @@ bindsym $mod+bracketleft workspace back_and_forth
 bindsym $mod+Shift+bracketleft move container to workspace back_and_forth
 
 # Assign applications to workspaces
-assign [class="Code|code"] $ws2
+# assign [class="Code|code"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Slack"] $ws3
 assign [class="discord|Discord"] $ws4
