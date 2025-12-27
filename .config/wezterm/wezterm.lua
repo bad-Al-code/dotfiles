@@ -166,7 +166,7 @@ config.colors = color_schemes[THEME]
 -------------------------------------------------------------------------------
 --                           Window Appearance
 -------------------------------------------------------------------------------
-config.window_background_opacity = 0.95
+config.window_background_opacity = 1
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 config.window_padding = {
