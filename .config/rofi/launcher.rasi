@@ -11,8 +11,8 @@ configuration {
 
 
 * {
-    bg: #18181b;
-    bg-alt: #27272a;
+    bg: #121212d9;
+    bg-alt: #141415cc;
     fg: #fafafa;
     fg-alt: #a1a1aa;
     border: #3f3f46;

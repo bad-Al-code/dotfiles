@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 # exec_always --no-startup-id pkill picom; picom --config ~/.config/picom/picom.conf -b
 
 # Wallpaper
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 # Notification daemon
 # exec --no-startup-id dunst
@@ -311,28 +311,25 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ################################################################################
-#                   Colors & Borders - Active Window Only
+#                   Colors & Borders 
 ################################################################################
 
-# No borders by default
+# No borders - picom handles rounded corners and shadows
 default_border none
 default_floating_border none
+for_window [class=".*"] border pixel 0
 
-# Enable borders only when focused
-for_window [class=".*"] border pixel 0, border pixel 2 px
+# Gaps for proper rounded corners (picom needs space to draw corners)
+gaps inner 2
+gaps outer 2
+smart_gaps off
 
-# Alternatively, use this smart approach:
-gaps inner 1
-gaps outer 1
-smart_gaps on
-smart_borders no_gaps
-
-# Color scheme - only focused window gets colored border
+# Colors (borders are disabled, but these affect title bars if used)
 client.focused           #52525b #18181b #fafafa #71717a #52525b
-client.focused_inactive  #00000000 #18181b #a1a1aa #00000000 #00000000
-client.unfocused         #00000000 #27272a #a1a1aa #00000000 #00000000
+client.focused_inactive  #27272a #18181b #a1a1aa #27272a #27272a
+client.unfocused         #27272a #27272a #a1a1aa #27272a #27272a
 client.urgent            #ef4444 #ef4444 #fafafa #ef4444 #ef4444
-client.placeholder       #00000000 #18181b #fafafa #00000000 #00000000
+client.placeholder       #27272a #18181b #fafafa #27272a #27272a
 client.background        #18181b
 ################################################################################
 #                           Status Bar (i3bar)
