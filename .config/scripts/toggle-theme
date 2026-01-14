@@ -1,0 +1,203 @@
+#!/usr/bin/env bash
+#
+# Toggle between light and dark mode for i3, rofi, dunst, and other apps
+# Usage: toggle-theme [dark|light]
+#
+
+set -euo pipefail
+
+# Configuration paths
+CONFIG_DIR="$HOME/.config"
+STATE_FILE="$CONFIG_DIR/.theme-mode"
+I3_CONFIG="$CONFIG_DIR/i3/config"
+ROFI_THEME="$CONFIG_DIR/rofi/launcher.rasi"
+DUNST_CONFIG="$CONFIG_DIR/dunst/dunstrc"
+
+# Color schemes
+# Dark mode (current theme - shadcn neutral)
+declare -A DARK=(
+    # i3 colors
+    [bg]="#18181b"
+    [inactive_bg]="#27272a"
+    [text]="#fafafa"
+    [inactive_text]="#a1a1aa"
+    [urgent]="#ef4444"
+    [indicator]="#71717a"
+    [border]="#3f3f46"
+    [focused_border]="#52525b"
+    # Rofi colors
+    [rofi_bg]="#121212d9"
+    [rofi_bg_alt]="#141415cc"
+    [rofi_fg]="#fafafa"
+    [rofi_fg_alt]="#a1a1aa"
+    [rofi_border]="#3f3f46"
+    [rofi_selected]="#52525b"
+    # Dunst colors
+    [dunst_bg]="#1c1c1eE6"
+    [dunst_low_fg]="#a1a1aa"
+    [dunst_normal_fg]="#fafafa"
+    [dunst_frame]="#3f3f4680"
+    [dunst_frame_normal]="#52525b80"
+    [dunst_critical_bg]="#2c1515E6"
+)
+
+# Light mode (macOS-inspired light theme)
+declare -A LIGHT=(
+    # i3 colors
+    [bg]="#f5f5f5"
+    [inactive_bg]="#e5e5e5"
+    [text]="#171717"
+    [inactive_text]="#525252"
+    [urgent]="#dc2626"
+    [indicator]="#a3a3a3"
+    [border]="#d4d4d4"
+    [focused_border]="#a3a3a3"
+    # Rofi colors
+    [rofi_bg]="#ffffffE6"
+    [rofi_bg_alt]="#f5f5f5CC"
+    [rofi_fg]="#171717"
+    [rofi_fg_alt]="#525252"
+    [rofi_border]="#d4d4d4"
+    [rofi_selected]="#e5e5e5"
+    # Dunst colors
+    [dunst_bg]="#ffffffE6"
+    [dunst_low_fg]="#525252"
+    [dunst_normal_fg]="#171717"
+    [dunst_frame]="#d4d4d480"
+    [dunst_frame_normal]="#a3a3a380"
+    [dunst_critical_bg]="#fef2f2E6"
+)
+
+# Get current mode
+get_current_mode() {
+    if [[ -f "$STATE_FILE" ]]; then
+        cat "$STATE_FILE"
+    else
+        echo "dark"
+    fi
+}
+
+# Set mode
+set_mode() {
+    echo "$1" > "$STATE_FILE"
+}
+
+# Update i3 config
+update_i3() {
+    local -n colors=$1
+    
+    sed -i \
+        -e "s/^set \$bg-color.*/set \$bg-color            ${colors[bg]}/" \
+        -e "s/^set \$inactive-bg-color.*/set \$inactive-bg-color   ${colors[inactive_bg]}/" \
+        -e "s/^set \$text-color.*/set \$text-color          ${colors[text]}/" \
+        -e "s/^set \$inactive-text-color.*/set \$inactive-text-color ${colors[inactive_text]}/" \
+        -e "s/^set \$urgent-bg-color.*/set \$urgent-bg-color     ${colors[urgent]}/" \
+        -e "s/^set \$indicator-color.*/set \$indicator-color     ${colors[indicator]}/" \
+        -e "s/^set \$border-color.*/set \$border-color        ${colors[border]}/" \
+        -e "s/^set \$focused-border.*/set \$focused-border      ${colors[focused_border]}/" \
+        "$I3_CONFIG"
+}
+
+# Update rofi theme
+update_rofi() {
+    local -n colors=$1
+    
+    sed -i \
+        -e "s/bg: #[a-fA-F0-9]\{6,8\};/bg: ${colors[rofi_bg]};/" \
+        -e "s/bg-alt: #[a-fA-F0-9]\{6,8\};/bg-alt: ${colors[rofi_bg_alt]};/" \
+        -e "s/fg: #[a-fA-F0-9]\{6,8\};/fg: ${colors[rofi_fg]};/" \
+        -e "s/fg-alt: #[a-fA-F0-9]\{6,8\};/fg-alt: ${colors[rofi_fg_alt]};/" \
+        -e "s/border: #[a-fA-F0-9]\{6,8\};/border: ${colors[rofi_border]};/" \
+        -e "s/selected: #[a-fA-F0-9]\{6,8\};/selected: ${colors[rofi_selected]};/" \
+        "$ROFI_THEME"
+}
+
+# Update dunst config
+update_dunst() {
+    local -n colors=$1
+    
+    # Update urgency_low
+    sed -i "/\[urgency_low\]/,/\[urgency_/ {
+        s/background = \"#[a-fA-F0-9]\{6,8\}\"/background = \"${colors[dunst_bg]}\"/
+        s/foreground = \"#[a-fA-F0-9]\{6,8\}\"/foreground = \"${colors[dunst_low_fg]}\"/
+        s/frame_color = \"#[a-fA-F0-9]\{6,8\}\"/frame_color = \"${colors[dunst_frame]}\"/
+    }" "$DUNST_CONFIG"
+    
+    # Update urgency_normal
+    sed -i "/\[urgency_normal\]/,/\[urgency_/ {
+        s/background = \"#[a-fA-F0-9]\{6,8\}\"/background = \"${colors[dunst_bg]}\"/
+        s/foreground = \"#[a-fA-F0-9]\{6,8\}\"/foreground = \"${colors[dunst_normal_fg]}\"/
+        s/frame_color = \"#[a-fA-F0-9]\{6,8\}\"/frame_color = \"${colors[dunst_frame_normal]}\"/
+    }" "$DUNST_CONFIG"
+    
+    # Update urgency_critical
+    sed -i "/\[urgency_critical\]/,/\[.*\]/ {
+        s/background = \"#[a-fA-F0-9]\{6,8\}\"/background = \"${colors[dunst_critical_bg]}\"/
+    }" "$DUNST_CONFIG"
+}
+
+# Apply theme and restart services
+apply_theme() {
+    local mode=$1
+    local color_scheme
+    
+    if [[ "$mode" == "light" ]]; then
+        color_scheme="LIGHT"
+    else
+        color_scheme="DARK"
+    fi
+    
+    echo "🎨 Switching to $mode mode..."
+    
+    # Update configs
+    update_i3 "$color_scheme"
+    update_rofi "$color_scheme"
+    update_dunst "$color_scheme"
+    
+    # Save current mode
+    set_mode "$mode"
+    
+    # Restart services
+    echo "🔄 Restarting i3..."
+    i3-msg reload > /dev/null 2>&1
+    
+    echo "🔄 Restarting dunst..."
+    killall dunst 2>/dev/null || true
+    dunst &>/dev/null &
+    
+    # Send notification
+    sleep 0.5
+    notify-send -u normal "Theme Switched" "Now using $mode mode 🌙" 2>/dev/null || true
+    
+    echo "✅ Switched to $mode mode!"
+}
+
+# Main logic
+main() {
+    local current_mode
+    local new_mode
+    
+    current_mode=$(get_current_mode)
+    
+    # If argument provided, use it; otherwise toggle
+    if [[ $# -gt 0 ]]; then
+        new_mode="$1"
+    else
+        if [[ "$current_mode" == "dark" ]]; then
+            new_mode="light"
+        else
+            new_mode="dark"
+        fi
+    fi
+    
+    # Validate mode
+    if [[ "$new_mode" != "dark" && "$new_mode" != "light" ]]; then
+        echo "Usage: toggle-theme [dark|light]"
+        echo "Current mode: $current_mode"
+        exit 1
+    fi
+    
+    apply_theme "$new_mode"
+}
+
+main "$@"
