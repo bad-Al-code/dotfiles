@@ -126,7 +126,7 @@ update_dunst() {
     # Update urgency_normal
     sed -i "/\[urgency_normal\]/,/\[urgency_/ {
         s/background = \"#[a-fA-F0-9]\{6,8\}\"/background = \"${colors[dunst_bg]}\"/
-        s/foreground = \"#[a-fA-F0-9]\{6,8\}\"/foreground = \"${colors[dunst_normal_fg]}\"/
+        s/foreground = \"#[a-fA-F0-9]\{6,8\}\"/foreground = \"${colors[dunst_normal_fg
         s/frame_color = \"#[a-fA-F0-9]\{6,8\}\"/frame_color = \"${colors[dunst_frame_normal]}\"/
     }" "$DUNST_CONFIG"
     
