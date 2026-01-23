@@ -6,7 +6,7 @@ configuration {
     display-run: "Run";
     display-window: "Windows";
     drun-display-format: "{name}";
-    font: "SF Pro Display 11";
+    font: "Geist Mono 11";
 }
 
 

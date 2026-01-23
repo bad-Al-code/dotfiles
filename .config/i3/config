@@ -339,7 +339,7 @@ bar {
     position bottom
     status_command i3status -c ~/.config/i3status/config
     
-    font pango:SF Pro Display, Font Awesome 6 Free 8
+    font pango:Geist Mono, SF Pro Display, Font Awesome 6 Free 8
     
     height 20
     
