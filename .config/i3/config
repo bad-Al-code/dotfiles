@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 # exec_always --no-startup-id pkill picom; picom --config ~/.config/picom/picom.conf -b
 
 # Wallpaper
-# exec --no-startup-id nitrogen --restore
+ exec --no-startup-id nitrogen --restore
 
 # Notification daemon
 # exec --no-startup-id dunst
@@ -48,6 +48,7 @@ exec_always --no-startup-id "killall -q dunst; while pgrep -u $UID -x dunst >/de
 
 # Clipboard manager
 exec --no-startup-id clipster -d
+bindsym $mod+g exec clipster -s
 
 # Polkit authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -140,7 +141,7 @@ bindsym $mod+z focus child
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+grave scratchpad show
+bindsym $mod+Tab scratchpad show
 
 ################################################################################
 #                           Application Launchers
@@ -155,7 +156,7 @@ bindsym $mod+d exec --no-startup-id /home/linuxbrew/.linuxbrew/bin/rofi -show dr
 bindsym $mod+Shift+d exec --no-startup-id /home/linuxbrew/.linuxbrew/bin/rofi -show run -theme ~/.config/rofi/launcher.rasi
 
 # Window switcher
-bindsym $mod+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launcher.rasi
+bindsym $Mod+grave exec --no-startup-id rofi -show window -theme ~/.config/rofi/launcher.rasi
 
 # File manager
 bindsym $mod+n exec nautilus
@@ -226,7 +227,7 @@ bindsym $mod+Shift+bracketleft move container to workspace back_and_forth
 
 # Assign applications to workspaces
 # assign [class="Code|code"] $ws2
-assign [class="TelegramDesktop"] $ws3
+# assign [class="TelegramDesktop"] $ws3
 assign [class="Slack"] $ws3
 assign [class="discord|Discord"] $ws4
 assign [class="Spotify"] $ws4
@@ -321,7 +322,7 @@ for_window [class=".*"] border pixel 0
 
 # Gaps for proper rounded corners (picom needs space to draw corners)
 gaps inner 2
-gaps outer 2
+gaps outer 4
 smart_gaps off
 
 # Colors (borders are disabled, but these affect title bars if used)
@@ -334,15 +335,15 @@ client.background        #18181b
 ################################################################################
 #                           Status Bar (i3bar)
 ################################################################################
-
+#
 bar {
     position bottom
     status_command i3status -c ~/.config/i3status/config
-    
+
     font pango:Geist Mono, SF Pro Display, Font Awesome 6 Free 8
-    
+
     height 20
-    
+
     colors {
         background $bg-color
         statusline $text-color
@@ -355,7 +356,7 @@ bar {
         urgent_workspace     $urgent-bg-color $urgent-bg-color  $text-color
         binding_mode         $urgent-bg-color $urgent-bg-color  $text-color
     }
-    
+
     tray_output primary
     tray_padding 4
 }
